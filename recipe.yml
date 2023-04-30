@@ -29,6 +29,8 @@ extrarepos:
   # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-37/atim-starship-fedora-37.repo
   keyd:
     - https://copr.fedorainfracloud.org/coprs/dspom/keyd/repo/fedora-38/dspom-keyd-fedora-38.repo
+  wezterm:
+    - https://copr.fedorainfracloud.org/coprs/stefan-maasen/wezterm/repo/fedora-38/stefan-maasen-wezterm-fedora-38.repo
 
 # These rpms will be installed from the fedora repository
 # using rpm-ostree and will be preinstalled in the final image
@@ -37,6 +39,7 @@ rpms:
   - python3-pip
   - neovim
   - keyd
+  - wezterm
   - libadwaita # libadwaita comes with silverblue, but not with other flavors
   # add your own below
 
