@@ -17,13 +17,6 @@ RUN mkdir /tmp/scripts
 COPY scripts /tmp/scripts
 RUN find /tmp/scripts -type f -exec chmod +x {} \;
 
-# Keyd service
-RUN systemctl enable keyd.service
-
-# Cleanup COPR repos
-RUN rm -f /etc/yum.repos.d/dspom-keyd-fedora-38.repo && \
-    rm -f /etc/yum.repos.d/stefan-maassen-wezterm-fedora-38.repo
-
 COPY ${RECIPE} /usr/etc/ublue-recipe.yml
 
 # yq used in build.sh and the setup-flatpaks recipe to read the recipe.yml
@@ -32,7 +25,10 @@ COPY --from=docker.io/mikefarah/yq /usr/bin/yq /usr/bin/yq
 
 # copy and run the build script
 COPY build.sh /tmp/build.sh
-RUN chmod +x /tmp/build.sh && /tmp/build.sh
+RUN chmod +x /tmp/build.sh && /tmp/build.sh \
+  && systemctl enable keyd.service \
+  && rm -f /etc/yum.repos.d/dspom-keyd-fedora-38.repo  \
+  && rm -f /etc/yum.repos.d/stefan-maassen-wezterm-fedora-38.repo
 
 # clean up and finalize container build
 RUN rm -rf \
