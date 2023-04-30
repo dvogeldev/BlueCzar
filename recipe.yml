@@ -27,6 +27,8 @@ scripts:
 extrarepos:
   # example:
   # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-37/atim-starship-fedora-37.repo
+  keyd:
+    - https://copr.fedorainfracloud.org/coprs/dspom/keyd/repo/fedora-38/dspom-keyd-fedora-38.repo
 
 # These rpms will be installed from the fedora repository
 # using rpm-ostree and will be preinstalled in the final image
@@ -34,6 +36,7 @@ rpms:
   # needed for yafti (the first boot installer) (remove if you're not using yafti)
   - python3-pip
   - neovim
+  - keyd
   - libadwaita # libadwaita comes with silverblue, but not with other flavors
   # add your own below
 
