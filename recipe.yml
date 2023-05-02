@@ -40,6 +40,7 @@ rpms:
   - neovim
   - zoxide
   - keyd
+  - mosh
   - wezterm
   - libadwaita # libadwaita comes with silverblue, but not with other flavors
   # add your own below
@@ -53,3 +54,9 @@ flatpaks:
   - org.gnome.DejaDup
   - com.github.tchx84.Flatseal
   - io.github.celluloid_player.Celluloid
+  - com.github.marhkb.Pods
+  - com.github.wwmm.easyeffects
+  - com.brave.Browser
+  - org.gimp.GIMP
+  - org.qutebrowser.qutebrowser
+  - io.podman_desktop.PodmanDesktop
